@@ -24,7 +24,10 @@
 //adding remaining buttons
 //skipped 106 to 112- adding logo, 113/114- required annotation and assertions
 //go to console.firebase.google.com and create new project. go to android icon after that.
-//come to android/app/build.gradle file, and get application id,
+//for android package name, come to android/app/build.gradle file, and get application id,
+// for debug signing cert, go to android/build.gradle, open for editing in android studio in a new window, open gradle from the right side, then tasks/android/double click on siging report and copy sha-1 code from terminal below
+//
+
 
 
 
