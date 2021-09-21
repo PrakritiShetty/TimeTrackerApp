@@ -26,17 +26,27 @@
 //go to console.firebase.google.com and create new project. go to android icon after that.
 //for android package name, come to android/app/build.gradle file, and get application id,
 // for debug signing cert, go to android/build.gradle, open for editing in android studio in a new window, open gradle from the right side, then tasks/android/double click on siging report and copy sha-1 code from terminal below
-//
-
-
+//install a flutter plugin (pub.dev/pacakes- firebase_auth) and add it to pubspec.yaml in dependencies
+//migrate to androidx
+//start signinanonymously- import firebase_auth, write function
 
 
 
 import 'package:flutter/material.dart';
 import 'package:flutter_course_app/common_widgets/custom_elevated_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class SignInPage extends StatelessWidget
 {
+
+  void _signInAnonymously() async
+  {
+    final authResult= await FirebaseAuth.instance.signInAnonymously();
+    print('${authResult.user?.uid}');
+  }
+
+
   const SignInPage({Key? key}) : super(key: key);
 
   @override
@@ -128,7 +138,7 @@ class SignInPage extends StatelessWidget
                   fontSize: 20.0,
                 ),
               ),
-              onPressed:  () {}, //1st bracket is for parameters
+              onPressed:  _signInAnonymously, //1st bracket is for parameters
               borderRadius: 16.0,
               color: Colors.yellowAccent,
 
